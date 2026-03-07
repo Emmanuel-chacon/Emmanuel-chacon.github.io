@@ -202,6 +202,7 @@ header {
     width: 0%;
     height: 30px;
     background-color: #000000;
+    border:1px solid #80a9ce;
     border-radius: 10px;
     color: #ffffff;
     display: flex;
@@ -676,4 +677,29 @@ footer {
 .welcome-hidden {
     opacity: 0;
     visibility: hidden;
+}
+
+.download_cv {
+    text-align: center;
+    margin-top: 50px;
+    padding: 20px;
+    border-top: 1px solid rgba(14, 165, 233, 0.2);
+}
+
+.download_cv p {
+    color: #94A3B8;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.cv-btn {
+    padding: 15px 35px;
+    font-size: 1.1rem;
+    display: inline-block;
+    background-color: rgba(14, 165, 233, 0.05);
+}
+
+.cv-btn:hover {
+    background-color: #0EA5E9;
+    transform: scale(1.05);
 }
