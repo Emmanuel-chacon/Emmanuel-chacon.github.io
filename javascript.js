@@ -3,23 +3,29 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 0. Welcome Screen (Terminal Style) Logic ---
     const welcomeScreen = document.getElementById('welcome-screen');
     const enterBtn = document.getElementById('enter-btn');
-
+    const hasVisited = sessionStorage.getItem('hasVisited');
+    
     if (welcomeScreen && enterBtn) {
-        // Disables page scrolling so the user cannot scroll while viewing the terminal
-        document.body.style.overflow = 'hidden';
-
-        // Makes the [CLICK TO ENTER] button appear after 4.5 seconds
-        setTimeout(() => {
-            enterBtn.classList.add('show-enter');
-        }, 4500);
-
-        // Hides the terminal and restores scrolling on click
-        enterBtn.addEventListener('click', () => {
-            welcomeScreen.classList.add('welcome-hidden');
-            document.body.style.overflow = 'auto'; 
-        });
+        if (hasVisited) {
+            // If the user has already visited in this session, hide the terminal immediately
+            welcomeScreen.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        } else {
+            // First visit: run the animation
+            document.body.style.overflow = 'hidden';
+        
+            setTimeout(() => {
+                enterBtn.classList.add('show-enter');
+            }, 4500);
+        
+            enterBtn.addEventListener('click', () => {
+                welcomeScreen.classList.add('welcome-hidden');
+                document.body.style.overflow = 'auto';
+                // Set the flag so we remember the user visited
+                sessionStorage.setItem('hasVisited', 'true');
+            });
+        }
     }
-
     // --- 1. Mobile Hamburger Menu Logic ---
     const mobileMenu = document.getElementById('mobile-menu');
     const navList = document.querySelector('.nav_links');
