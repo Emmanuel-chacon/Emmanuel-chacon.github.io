@@ -125,4 +125,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    const unlockBtn = document.getElementById("unlock-btn");
+    const accessInput = document.getElementById("access-code");
+    const errorMsg = document.getElementById("error-msg");
+    if (unlockBtn) {
+        unlockBtn.addEventListener("click", () => {
+            const code = accessInput.value;
+
+            if (code === "12345") {
+                window.location.href = "special.html"
+            } else {
+                errorMsg.style.display = "block";
+                accessInput.value = "";
+            }
+        });
+
+    }
 });;

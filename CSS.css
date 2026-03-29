@@ -586,6 +586,16 @@ footer {
     #path ul::before {
         display: none;
     }
+
+    .project-private {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .project-visual {
+        justify-content: center;
+    }
     
 }
 
@@ -702,4 +712,29 @@ footer {
 .cv-btn:hover {
     background-color: #0EA5E9;
     transform: scale(1.05);
+}
+
+.project-private {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.project-text {
+    flex: 1;
+    text-align: left;
+}
+
+.project-visual {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end; /* Pushes the iframe to the right edge */
+    width: 100%;
+}
+
+.project-visual iframe {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
 }
